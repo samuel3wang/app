@@ -11,6 +11,6 @@ func main() {
 	// debug or release mode
 	gin.SetMode(gin.ReleaseMode)
 	psql.GetDB()
-	fmt.Println("The server is running")
+	fmt.Println("The server is running!!")
 	routes.RegisterRoutes()
 }

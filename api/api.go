@@ -2,12 +2,9 @@ package routes
 
 import (
 	// "fmt"
-
 	// "app/psql"
 	// "database/sql"
-
-	// "database/sql"
-
+	
 	"github.com/gin-gonic/gin"
 	// "github.com/gin-gonic/gin/binding"
 )
@@ -23,15 +20,15 @@ func RegisterRoutes(){
 
 	v1 := c.Group("/user")
 	{
-		v1.GET("/", Aaaaa)
+	// 	v1.GET("/", Lookup)
+	 	v1.GET("/", add)
+	// 	v1.PUT("/", )
+	// 	v1.DELETE("/:", )
+
 	}
 	v2 := c.Group("/fruit")
 	{
-		v2.GET("/", 		allItems)
-		// v2.GET("/order", 	)
-		// v2.POST("/order", 	)
-		// v2.PUT("/order", 	)
-		// v2.DELETE("/order", )
+		v2.GET("/", allItems)
 	}
 	c.Run(":3000")
 }

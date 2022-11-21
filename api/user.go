@@ -1,15 +1,18 @@
 package routes
 
 import (
-	//"app/psql"
-	//"database/sql"
+	"app/psql"
 	"fmt"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
 	_ "github.com/lib/pq"
 )
-
+func checkError(err error) {
+	if err != nil {
+		panic(err)
+	}
+}
 func Lookup(c *gin.Context){
 	c.String(http.StatusOK, "hello")
 	fmt.Println("hello")
@@ -18,9 +21,8 @@ func Lookup(c *gin.Context){
 func add(c *gin.Context) {
 	
 	insert := `INSERT INTO "userinfo"("uid", "username", "department") values($1, $2, $3)`
-	_, err = db.Exec(insert, 10, "elsa9", "qq9")
-	if err != nil {
-		panic(err)
-	}
+	_, err := psql.DB.Exec(insert, 10, "elsa10", "qq10")
+	checkError(err)
+	
 	return
 }

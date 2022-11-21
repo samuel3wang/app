@@ -12,14 +12,9 @@ const(
 	password = "3336"
 	dbname = "samuel"
 )
+var DB *sql.DB
 
-// func checkError(err error) {
-// 	if err != nil {
-// 		panic(err)
-// 	}
-// }
-
-func GetDB() {
+func ConnectDB() {
 
 	// connection string.
 	psqlInfo := fmt.Sprintf("host=%s port=%d user=%s password=%s dbname=%s sslmode=disable", host, port, user, password, dbname)
@@ -29,8 +24,10 @@ func GetDB() {
 		panic(err)
 	}
 	// Close DB
-	defer db.Close()
+	// defer db.Close()
 	
+	DB = db
+
 	// c := gin.Default()
 
 	// ---Insert--- 
